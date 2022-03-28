@@ -1565,7 +1565,10 @@
                 else {
                   var t = this.sb.getApplicationId();
                   e(null, {
-                    apiHost: "https://conversation-api-use-qas".concat(t, ".herokuapp.com/api"),
+                    apiHost: "https://conversation-api-use-qas".concat(
+                      "",
+                      ".herokuapp.com/api"
+                    ),
                     wsHost: "wss://ws-".concat(t, ".sendbird.com"),
                   });
                 }
@@ -10868,26 +10871,24 @@
                     (t = O.get(this._iid)),
                     [
                       4,
-                      t
-                        .get("apiClient")
-                        .loadGroupChannelList(
-                          R(R({}, this._filter), {
-                            order: this._order,
-                            token: this._token,
-                            limit: this._limit,
-                            userIdsFilter: this._filter.userIdsFilter,
-                            searchFilter:
-                              ((s = this._filter.searchFilter),
-                              s.searchQuery && s.searchFields
-                                ? {
-                                    search_query: s.searchQuery,
-                                    search_fields: s.searchFields
-                                      .join(",")
-                                      .toLocaleLowerCase(),
-                                  }
-                                : {}),
-                          })
-                        ),
+                      t.get("apiClient").loadGroupChannelList(
+                        R(R({}, this._filter), {
+                          order: this._order,
+                          token: this._token,
+                          limit: this._limit,
+                          userIdsFilter: this._filter.userIdsFilter,
+                          searchFilter:
+                            ((s = this._filter.searchFilter),
+                            s.searchQuery && s.searchFields
+                              ? {
+                                  search_query: s.searchQuery,
+                                  search_fields: s.searchFields
+                                    .join(",")
+                                    .toLocaleLowerCase(),
+                                }
+                              : {}),
+                        })
+                      ),
                     ]
                   );
                 case 1:
@@ -24466,12 +24467,10 @@
                 var r = Zn.get(this);
                 if (t - r.start >= n) {
                   (r.end = 0), (r.start = t);
-                  var i = x
-                    .get(this._iid)
-                    .Command.bTypeStart({
-                      channelUrl: this.url,
-                      time: r.start,
-                    });
+                  var i = x.get(this._iid).Command.bTypeStart({
+                    channelUrl: this.url,
+                    time: r.start,
+                  });
                   e.sendCommand(i, null);
                 }
               },
@@ -27272,24 +27271,22 @@
             {
               key: "_objectifySerializedData",
               value: function (e) {
-                return x
-                  .get(this._iid)
-                  .UserMessage.objectify(
-                    l(
-                      l({}, e),
-                      {},
-                      {
-                        channel: {
-                          url: e.channelUrl,
-                          channelType: e.channelType,
-                        },
-                        user: e.sender,
-                        messageParams: e.messageParams
-                          ? new gr(gr.objectify(e.messageParams))
-                          : null,
-                      }
-                    )
-                  );
+                return x.get(this._iid).UserMessage.objectify(
+                  l(
+                    l({}, e),
+                    {},
+                    {
+                      channel: {
+                        url: e.channelUrl,
+                        channelType: e.channelType,
+                      },
+                      user: e.sender,
+                      messageParams: e.messageParams
+                        ? new gr(gr.objectify(e.messageParams))
+                        : null,
+                    }
+                  )
+                );
               },
             },
           ]
@@ -27915,24 +27912,22 @@
             {
               key: "_objectifySerializedData",
               value: function (e) {
-                return x
-                  .get(this._iid)
-                  .FileMessage.objectify(
-                    l(
-                      l({}, e),
-                      {},
-                      {
-                        channel: {
-                          url: e.channelUrl,
-                          channelType: e.channelType,
-                        },
-                        user: e.sender,
-                        messageParams: e.messageParams
-                          ? new mr(mr.objectify(e.messageParams))
-                          : null,
-                      }
-                    )
-                  );
+                return x.get(this._iid).FileMessage.objectify(
+                  l(
+                    l({}, e),
+                    {},
+                    {
+                      channel: {
+                        url: e.channelUrl,
+                        channelType: e.channelType,
+                      },
+                      user: e.sender,
+                      messageParams: e.messageParams
+                        ? new mr(mr.objectify(e.messageParams))
+                        : null,
+                    }
+                  )
+                );
               },
             },
           ]
@@ -28133,20 +28128,18 @@
             {
               key: "_objectifySerializedData",
               value: function (e) {
-                return x
-                  .get(this._iid)
-                  .AdminMessage.objectify(
-                    l(
-                      l({}, e),
-                      {},
-                      {
-                        channel: {
-                          url: e.channelUrl,
-                          channelType: e.channelType,
-                        },
-                      }
-                    )
-                  );
+                return x.get(this._iid).AdminMessage.objectify(
+                  l(
+                    l({}, e),
+                    {},
+                    {
+                      channel: {
+                        url: e.channelUrl,
+                        channelType: e.channelType,
+                      },
+                    }
+                  )
+                );
               },
             },
           ]
