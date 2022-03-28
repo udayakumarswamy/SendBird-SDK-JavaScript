@@ -2,7 +2,7 @@
   "name": "sendbird",
   "version": "3.1.9",
   "description": "Sendbird JavaScript SDK",
-  "main": "SendBird.min.js",
+  "main": "SendBird.js",
   "dependencies": {
     "agentkeepalive": "4.1.4",
     "axios": "^0.21.4",
