@@ -3,7 +3,7 @@
  * Sendbird JavaScript SDK v3.1.9
  */
 
-!(function (e, t) {
+ !(function (e, t) {
   "object" == typeof exports && "undefined" != typeof module
     ? (module.exports = t(
         require("axios"),
@@ -1569,7 +1569,7 @@
                       "",
                       ".herokuapp.com/api"
                     ),
-                    wsHost: "wss://ws-".concat(t, ".sendbird.com"),
+                    wsHost: "ws://conversation-api-use-qas".concat("", ".herokuapp.com/cable"),
                   });
                 }
               },
@@ -1584,9 +1584,9 @@
                   ? r && r.internal
                     ? ""
                         .concat(t, "/v")
-                        .concat(T.SDK_MAJOR_VERSION, "/sdk")
+                        .concat(T.SDK_MAJOR_VERSION, "")
                         .concat(n)
-                    : "".concat(t, "/v").concat(T.SDK_MAJOR_VERSION).concat(n)
+                    : "".concat(t, "/v").concat(T.SDK_MAJOR_VERSION).concat(`/subscribers/${this.sb.getApplicationId()}`).concat(n)
                   : t;
               },
             },
@@ -32603,7 +32603,7 @@
               value: function () {
                 return this.customApiHost
                   ? this.customApiHost
-                  : "https://api.sendbird.com";
+                  : "://conversation-api-use-qas.herokuapp.com/api";
               },
             },
             {
@@ -32617,7 +32617,7 @@
               value: function () {
                 return this.customWsHost
                   ? this.customWsHost
-                  : "wss://ws.sendbird.com";
+                  : "ws://conversation-api-use-qas.herokuapp.com/cable";
               },
             },
             {
